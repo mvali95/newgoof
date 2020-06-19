@@ -19,3 +19,13 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
+- task: SnykSecurityScan@0
+  inputs:
+    serviceConnectionEndpoint: 'Snyk - Azure DevOps'
+    testType: 'app'
+    severityThreshold: 'high'
+    monitorOnBuild: true
+    failOnIssues: true
+    projectName: 'Test app'
+    organization: 'mo.vali'
