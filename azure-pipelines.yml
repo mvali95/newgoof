@@ -21,12 +21,7 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
-
-    - task: SnykSecurityScan@0
+      - task: SnykSecurityScan@0
     inputs:
       serviceConnectionEndpoint: 'AD'
       testType: 'app'
@@ -34,4 +29,11 @@ steps:
       monitorOnBuild: true
       failOnIssues: false
       projectName: 'new goof project'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+
       
